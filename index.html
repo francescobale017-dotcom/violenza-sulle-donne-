@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basta Violenza - Progetto di Classe</title>
+    <title>Basta Violenza - Il Vostro Progetto</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-red: #d32f2f;
+            --primary-red: #d32f2f; /* Un rosso più intenso */
             --dark-gray: #1a1a1a;
             --white: #ffffff;
             --light-gray: #f4f4f4;
+            --medium-gray: #333333;
         }
 
         * {
@@ -26,6 +27,7 @@
             line-height: 1.6;
             color: var(--dark-gray);
             background-color: var(--white);
+            scroll-behavior: smooth;
         }
 
         /* Navigazione */
@@ -39,6 +41,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        nav .logo {
+            color: var(--primary-red);
+            font-weight: bold;
+            font-size: 1.5rem;
+            text-transform: uppercase;
         }
 
         nav a {
@@ -48,12 +58,17 @@
             font-size: 0.9rem;
             text-transform: uppercase;
             font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-red);
         }
 
         /* Hero Section */
         header {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2070&auto=format&fit=crop');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -66,22 +81,53 @@
         }
 
         h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             margin-bottom: 1rem;
             letter-spacing: 5px;
             color: var(--primary-red);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
         }
 
         .subtitle {
-            font-size: 1.2rem;
-            max-width: 800px;
+            font-size: 1.3rem;
+            max-width: 900px;
+            margin-top: 1rem;
+            font-weight: 300;
         }
 
-        /* Sezioni */
+        .authors {
+            margin-top: 30px;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Sezioni Generali */
         section {
             padding: 100px 20px;
             max-width: 1100px;
             margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-red);
+            border-radius: 2px;
         }
 
         .grid {
@@ -96,36 +142,82 @@
             padding: 2rem;
             border-left: 5px solid var(--primary-red);
             border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .card h3 {
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h3 i {
+            color: var(--primary-red);
+        }
+
+        /* Immagini nelle sezioni */
+        .section-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         /* Citazioni */
         .quote-box {
-            background: var(--dark-gray);
+            background: var(--medium-gray);
             color: white;
             padding: 4rem 2rem;
             text-align: center;
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
             font-style: italic;
-            margin: 4rem 0;
+            margin: 4rem auto;
+            max-width: 1000px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
         }
 
         /* Pulsante SOS Mobile */
         .sos-float {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 25px;
+            right: 25px;
             background: var(--primary-red);
             color: white;
-            padding: 15px 30px;
+            padding: 18px 35px;
             border-radius: 50px;
             font-weight: bold;
             text-decoration: none;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
             z-index: 2000;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease, background 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .sos-float:hover {
+            transform: scale(1.05);
+            background: darken(var(--primary-red), 10%);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.7); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 20px rgba(211, 47, 47, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(211, 47, 47, 0); }
         }
 
         /* Footer */
@@ -134,28 +226,44 @@
             color: #888;
             padding: 3rem 2rem;
             text-align: center;
+            font-size: 0.9rem;
         }
 
         /* Statistiche */
         .stat-circle {
             text-align: center;
+            padding: 1.5rem;
+            background: var(--medium-gray);
+            border-radius: 10px;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
         .stat-number {
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: var(--primary-red);
             font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .stat-circle p {
+            font-size: 1.1rem;
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            nav { display: none; }
+            h1 { font-size: 3rem; }
+            .subtitle { font-size: 1rem; }
+            nav { display: none; } /* Nasconde la nav bar sui mobile, si può aggiungere un hamburger menu con JS */
+            .quote-box { font-size: 1.2rem; padding: 2.5rem 1rem; }
+            .sos-float { padding: 12px 25px; font-size: 1rem; right: 15px; bottom: 15px; }
+            section { padding: 60px 15px; }
+            h2 { font-size: 2rem; margin-bottom: 2rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div style="color:var(--primary-red); font-weight: bold;">BASTA VIOLENZA</div>
+        <div class="logo">BASTA VIOLENZA</div>
         <div>
             <a href="#progetto">Il Progetto</a>
             <a href="#definizione">Cos'è</a>
@@ -171,100 +279,21 @@
 
     <header id="home">
         <h1>BASTA VIOLENZA</h1>
-        <p class="subtitle">Un grido collettivo e unanime per porre fine al sangue innocente sparso ogni anno per le vie del mondo[cite: 119].</p>
-        <p style="margin-top: 20px; font-style: italic;">
-            Creato da: Arianna, Beatrice, Sofia, Gaia e Francesco 
+        <p class="subtitle">Un grido collettivo e unanime per porre fine al sangue innocente sparso ogni anno per le vie del mondo.</p>
+        <p class="authors">
+            Progetto ideato da: Arianna, Beatrice, Sofia, Gaia e Francesco
         </p>
     </header>
 
     <section id="progetto">
-        <h2 style="text-align: center; margin-bottom: 2rem;">IL NOSTRO IMPEGNO</h2>
+        <h2>IL NOSTRO IMPEGNO</h2>
+        <img src="https://images.unsplash.com/photo-1542838686-37a5051a82f3?q=80&w=2070&auto=format&fit=crop" alt="Mano che disegna su una parete" class="section-image">
         <div class="card">
-            <p>Il nostro murale prende vita dalla performance omonima presentata all'<b>Università Statale di Milano il 31 marzo 2025</b>, nell'ambito del progetto <i>Rai Radio Come onde contro la violenza sulle donne</i>.</p>
+            <p>Il nostro murale prende vita dalla performance omonima presentata all'<b>Università Statale di Milano il 31 marzo 2025</b>, nell'ambito del progetto <i>Rai Radio Come onde contro la violenza sulle donne</i>. Questa iniziativa unisce arte, sensibilizzazione e il potere della comunicazione per raggiungere un pubblico vasto e promuovere il cambiamento.</p>
         </div>
     </section>
 
     <section id="definizione" style="background-color: var(--light-gray);">
-        <h2 style="text-align: center;">COS'È LA VIOLENZA SULLE DONNE?</h2>
-        <p style="text-align: center; max-width: 700px; margin: 1rem auto;">Qualsiasi comportamento usato per controllare o fare del male a una donna[cite: 131].</p>
-        
-        <div class="grid">
-            <div class="card">
-                <h3><i class="fas fa-fist-raised"></i> Fisica</h3>
-                <p>Colpire, spingere o fare del male al corpo[cite: 147, 148].</p>
-            </div>
-            <div class="card">
-                <h3><i class="fas fa-brain"></i> Psicologica</h3>
-                <p>Insulti, minacce, controllo e manipolazione[cite: 146].</p>
-            </div>
-            <div class="card">
-                <h3><i class="fas fa-euro-sign"></i> Economica/Sessuale</h3>
-                <p>Costringere a rapporti o controllare i soldi e la libertà della persona[cite: 150, 151].</p>
-            </div>
-        </div>
-    </section>
-
-    <div class="quote-box">
-        "L'amore non alza le mani, ma ti prende per mano e non ti dà uno schiaffo ma ti accarezza il viso"[cite: 141].
-    </div>
-
-    <section id="dati">
-        <h2 style="text-align: center;">PERCENTUALI NEL MONDO</h2>
-        <p style="text-align: center; margin-bottom: 3rem;">Fenomeni di violenza più frequenti per paese[cite: 162]:</p>
-        <div class="grid">
-            <div class="stat-circle"><div class="stat-number">60,7%</div><p>Bolivia [cite: 169]</p></div>
-            <div class="stat-circle"><div class="stat-number">58,6%</div><p>Sud Sudan [cite: 170]</p></div>
-            <div class="stat-circle"><div class="stat-number">57%</div><p>Finlandia [cite: 171]</p></div>
-            <div class="stat-circle"><div class="stat-number">52,8%</div><p>Fiji [cite: 172]</p></div>
-        </div>
-    </section>
-
-    <section id="memoria" style="background-color: #fce4ec;">
-        <h2 style="text-align: center;">IN MEMORIA DI GIULIA CECCHETTIN</h2>
-        <div class="grid">
-            <div>
-                <p>Nel novembre 2023, la 22enne Giulia Cecchettin è stata uccisa dal suo ex fidanzato[cite: 189]. Questo caso ha riacceso il dibattito sul femminicidio in Italia[cite: 197].</p>
-                <br>
-                <p><b>Fondazione Giulia Cecchettin:</b> Nata dalla sua famiglia per combattere la violenza di genere e promuovere l'educazione nelle scuole[cite: 178, 179].</p>
-            </div>
-            <div class="card" style="background: white;">
-                <p><i>"Questa paura è vera, come può capirlo chi non la vive?"</i></p>
-                <p style="margin-top: 10px;">— Michela Murgia [cite: 198]</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="aiuto">
-        <h2 style="text-align: center;">AIUTO E SUPPORTO</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>1522</h3>
-                <p>Numero nazionale antiviolenza e stalking. Attivo 24/7, offre ascolto e supporto legale[cite: 174, 175].</p>
-            </div>
-            <div class="card">
-                <h3>112</h3>
-                <p>Numero unico di emergenza per pericolo immediato[cite: 180].</p>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 3rem;">
-            <p>Altre risorse: Telefono Rosa [cite: 182] | Differenza Donna [cite: 184]</p>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 - Progetto Scolastico "Basta Violenza"</p>
-        <p>Università Statale di Milano - Performance Collettiva [cite: 196]</p>
-    </footer>
-
-    <script>
-        // Smooth Scroll per la navigazione
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const section = document.querySelector(this.getAttribute('href'));
-                section.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-    </script>
-</body>
-</html>
+        <h2>COS'È LA VIOLENZA SULLE DONNE?</h2>
+        <img src="https://images.unsplash.com/photo-1579782554790-250875e53df3?q=80&w=2070&auto=format&fit=crop" alt="Silouette di una donna sola" class="section-image">
+        <p style="text-align: center; max-width: 800px; margin: 1rem auto 3rem;">La violenza sulle donne è qualsiasi comportamento usato
