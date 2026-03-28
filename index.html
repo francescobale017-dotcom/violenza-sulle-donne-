@@ -44,7 +44,7 @@
         nav a {
             color: white;
             text-decoration: none;
-            margin-left: 20px;
+            margin-left: 15px;
             font-weight: bold;
             font-size: 0.8rem;
             text-transform: uppercase;
@@ -128,6 +128,21 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
+        /* Sezione Esperienza Speciale */
+        .esperienza-box {
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 8px solid var(--primary-red);
+            margin-bottom: 40px;
+        }
+        
+        .esperienza-box p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
         /* Statistiche */
         .stat-box {
             background: var(--dark);
@@ -182,6 +197,7 @@
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
             nav { display: none; }
+            .esperienza-box { padding: 30px; }
         }
     </style>
 </head>
@@ -191,6 +207,7 @@
         <div style="color:white; font-weight: bold;">PROGETTO 2025</div>
         <div>
             <a href="#video">Video</a>
+            <a href="#esperienza">L'Esperienza</a>
             <a href="#cos-e">Cos'è</a>
             <a href="#sviluppo">Sviluppo</a>
             <a href="#dati">Dati</a>
@@ -218,6 +235,19 @@
         </div>
     </section>
 
+    <section id="esperienza" style="background-color: var(--light);">
+        <div class="container">
+            <h2>La Nostra Esperienza in Statale</h2>
+            <div class="esperienza-box">
+                <p>Un giorno la nostra classe ha partecipato a una conferenza contro la violenza sulle donne. Siamo andati all'<strong>Università degli Studi di Milano</strong> e, tra i partecipanti, c'era il padre di Giulia Cecchettin.</p>
+                <p>In quell'occasione, abbiamo deciso che non bastava solo ascoltare. Abbiamo fatto la nostra parte: <strong>siamo saliti sul palco e abbiamo realizzato una performance</strong> mostrando a tutti la scritta "BASTA VIOLENZA".</p>
+                <p style="font-style: italic; color: #555; margin-top: 20px;">
+                    Da quel momento, tenutosi il 31 marzo 2025 nell'ambito del progetto Rai Radio "Come onde contro la violenza sulle donne", ha preso vita il nostro murale e tutto l'impegno che stiamo portando avanti con questo progetto.
+                </p>
+            </div>
+        </div>
+    </section>
+
     <section id="cos-e">
         <div class="container">
             <h2>Cos'è la Violenza?</h2>
@@ -226,7 +256,7 @@
         </div>
     </section>
 
-    <section id="sviluppo" style="background: #f1f1f1;">
+    <section id="sviluppo" style="background: #e9ecef;">
         <div class="container">
             <h2>Come si sviluppa</h2>
             <div class="card-grid">
@@ -261,7 +291,7 @@
         </div>
     </section>
 
-    <section id="giulia">
+    <section id="giulia" style="background: #fff;">
         <div class="container">
             <h2>In memoria di Giulia</h2>
             <img src="https://images.unsplash.com/photo-1601004314115-d4190283bc9e?auto=format&fit=crop&q=80" alt="Fiori e Memoria" class="img-featured">
