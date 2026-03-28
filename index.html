@@ -3,277 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basta Violenza - Progetto di Arianna, Beatrice, Sofia, Gaia</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Basta Violenza - Progetto di Classe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         :root {
-            --primary-red: #b30000;
-            --soft-red: #ff4d4d;
-            --dark-bg: #1a1a1a;
-            --light-text: #f4f4f4;
-            --accent-white: #ffffff;
+            --primary-red: #d32f2f;
+            --dark-gray: #1a1a1a;
+            --white: #ffffff;
+            --light-gray: #f4f4f4;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: var(--dark-bg);
-            color: var(--light-text);
+            font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
-            overflow-x: hidden;
+            color: var(--dark-gray);
+            background-color: var(--white);
         }
 
         /* Navigazione */
         nav {
-            background: rgba(0, 0, 0, 0.9);
-            padding: 1rem;
+            background: var(--dark-gray);
+            padding: 1rem 2rem;
             position: fixed;
             width: 100%;
+            top: 0;
             z-index: 1000;
-            border-bottom: 2px solid var(--primary-red);
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
+            align-items: center;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            font-weight: bold;
+            margin-left: 1.5rem;
             font-size: 0.9rem;
             text-transform: uppercase;
+            font-weight: bold;
         }
 
-        /* Header Hero */
+        /* Hero Section */
         header {
             height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            padding: 20px;
+            color: white;
+            padding: 0 20px;
         }
 
         h1 {
             font-size: 4rem;
-            color: var(--primary-red);
-            text-transform: uppercase;
-            margin-bottom: 10px;
+            margin-bottom: 1rem;
             letter-spacing: 5px;
+            color: var(--primary-red);
         }
 
-        .authors {
-            font-style: italic;
-            margin-top: 20px;
-            color: #ccc;
+        .subtitle {
+            font-size: 1.2rem;
+            max-width: 800px;
         }
 
-        /* Sezioni Generali */
+        /* Sezioni */
         section {
-            padding: 80px 20px;
-            max-width: 1000px;
+            padding: 100px 20px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
         .card {
-            background: #2a2a2a;
-            padding: 30px;
-            border-radius: 10px;
+            background: var(--light-gray);
+            padding: 2rem;
             border-left: 5px solid var(--primary-red);
-            margin-bottom: 20px;
+            border-radius: 8px;
         }
 
-        h2 {
-            color: var(--primary-red);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            border-bottom: 1px solid #444;
-            padding-bottom: 10px;
+        /* Citazioni */
+        .quote-box {
+            background: var(--dark-gray);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            margin: 4rem 0;
         }
 
-        /* SOS Button */
-        .sos-btn {
+        /* Pulsante SOS Mobile */
+        .sos-float {
             position: fixed;
             bottom: 20px;
             right: 20px;
             background: var(--primary-red);
             color: white;
-            padding: 15px 25px;
+            padding: 15px 30px;
             border-radius: 50px;
-            text-decoration: none;
             font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            z-index: 999;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 2000;
             display: flex;
             align-items: center;
             gap: 10px;
-            animation: pulse 2s infinite;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        /* Griglia Statistiche */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .stat-item {
-            background: #333;
-            padding: 20px;
-            text-align: center;
-            border-radius: 10px;
-        }
-
-        .percent {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--soft-red);
-        }
-
-        /* Citazioni */
-        .quote {
-            font-size: 1.5rem;
-            text-align: center;
-            padding: 40px;
-            background: #000;
-            border-radius: 20px;
-            margin: 40px 0;
-            border: 1px dashed var(--primary-red);
-        }
-
+        /* Footer */
         footer {
+            background: var(--dark-gray);
+            color: #888;
+            padding: 3rem 2rem;
             text-align: center;
-            padding: 40px;
-            background: #000;
-            color: #666;
         }
 
-        /* Responsive */
-        @media (max-width: 600px) {
+        /* Statistiche */
+        .stat-circle {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
-            nav { font-size: 0.7rem; }
+            nav { display: none; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#home">Home</a>
-        <a href="#info">Cos'è</a>
-        <a href="#dati">Dati</a>
-        <a href="#storia">Giulia</a>
-        <a href="#aiuto">Supporto</a>
+        <div style="color:var(--primary-red); font-weight: bold;">BASTA VIOLENZA</div>
+        <div>
+            <a href="#progetto">Il Progetto</a>
+            <a href="#definizione">Cos'è</a>
+            <a href="#dati">Dati</a>
+            <a href="#memoria">Memoria</a>
+            <a href="#aiuto">Supporto</a>
+        </div>
     </nav>
 
-    <a href="tel:1522" class="sos-btn">
+    <a href="tel:1522" class="sos-float">
         <i class="fas fa-phone-alt"></i> SOS 1522
     </a>
 
     <header id="home">
-        <h1>Basta Violenza</h1>
-        <p>Un grido collettivo e unanime per porre fine al sangue innocente [cite: 9]</p>
-        <div class="authors">Progetto ideato da: Arianna, Beatrice, Sofia, Gaia [cite: 18]</div>
+        <h1>BASTA VIOLENZA</h1>
+        <p class="subtitle">Un grido collettivo e unanime per porre fine al sangue innocente sparso ogni anno per le vie del mondo[cite: 119].</p>
+        <p style="margin-top: 20px; font-style: italic;">
+            Creato da: Arianna, Beatrice, Sofia, Gaia e Francesco 
+        </p>
     </header>
 
-    <section id="info">
-        <h2>Cos'è la Violenza sulle Donne?</h2>
+    <section id="progetto">
+        <h2 style="text-align: center; margin-bottom: 2rem;">IL NOSTRO IMPEGNO</h2>
         <div class="card">
-            <p>La violenza sulle donne è qualsiasi comportamento usato per controllare o fare del male a una donna[cite: 20, 21].</p>
-            <ul>
-                <li><strong>Fisica:</strong> Colpire, spingere o fare del male al corpo[cite: 37, 38].</li>
-                <li><strong>Psicologica:</strong> Insulti, minacce, controllo e manipolazione[cite: 36].</li>
-                <li><strong>Sessuale o Economica:</strong> Costringere a rapporti o controllare i soldi e la libertà[cite: 40, 41].</li>
-            </ul>
+            <p>Il nostro murale prende vita dalla performance omonima presentata all'<b>Università Statale di Milano il 31 marzo 2025</b>, nell'ambito del progetto <i>Rai Radio Come onde contro la violenza sulle donne</i>.</p>
         </div>
-
-        <div class="quote">
-            "L'amore non alza le mani, ma ti prende per mano... non ti dà uno schiaffo ma ti accarezza il viso"[cite: 31, 66, 67].
-        </div>
-
-        <h3>Come si sviluppa?</h3>
-        <p>Spesso inizia con comportamenti di controllo o manipolazione che poi possono diventare più gravi[cite: 35].</p>
     </section>
 
-    <section id="dati" style="background: #222;">
-        <h2>Dati nel Mondo</h2>
-        <p>Ci sono paesi in cui il fenomeno della violenza sulle donne è più frequente rispetto ad altri[cite: 52].</p>
-        <div class="stats-grid">
-            <div class="stat-item">
-                <div class="percent">60,7%</div>
-                <div>Bolivia [cite: 54, 59]</div>
+    <section id="definizione" style="background-color: var(--light-gray);">
+        <h2 style="text-align: center;">COS'È LA VIOLENZA SULLE DONNE?</h2>
+        <p style="text-align: center; max-width: 700px; margin: 1rem auto;">Qualsiasi comportamento usato per controllare o fare del male a una donna[cite: 131].</p>
+        
+        <div class="grid">
+            <div class="card">
+                <h3><i class="fas fa-fist-raised"></i> Fisica</h3>
+                <p>Colpire, spingere o fare del male al corpo[cite: 147, 148].</p>
             </div>
-            <div class="stat-item">
-                <div class="percent">58,6%</div>
-                <div>Sud Sudan [cite: 55, 60]</div>
+            <div class="card">
+                <h3><i class="fas fa-brain"></i> Psicologica</h3>
+                <p>Insulti, minacce, controllo e manipolazione[cite: 146].</p>
             </div>
-            <div class="stat-item">
-                <div class="percent">57%</div>
-                <div>Finlandia [cite: 56, 61]</div>
-            </div>
-            <div class="stat-item">
-                <div class="percent">52,8%</div>
-                <div>Fiji [cite: 58, 62]</div>
+            <div class="card">
+                <h3><i class="fas fa-euro-sign"></i> Economica/Sessuale</h3>
+                <p>Costringere a rapporti o controllare i soldi e la libertà della persona[cite: 150, 151].</p>
             </div>
         </div>
     </section>
 
-    <section id="storia">
-        <h2>Per non dimenticare: Giulia Cecchettin</h2>
-        <div class="card">
-            <p>Nel novembre 2023, la 22enne Giulia Cecchettin è stata uccisa dal suo ex fidanzato[cite: 78, 79].</p>
-            <p>Il suo caso ha suscitato enorme indignazione e ha riacceso il dibattito sul femminicidio in Italia[cite: 86].</p>
+    <div class="quote-box">
+        "L'amore non alza le mani, ma ti prende per mano e non ti dà uno schiaffo ma ti accarezza il viso"[cite: 141].
+    </div>
+
+    <section id="dati">
+        <h2 style="text-align: center;">PERCENTUALI NEL MONDO</h2>
+        <p style="text-align: center; margin-bottom: 3rem;">Fenomeni di violenza più frequenti per paese[cite: 162]:</p>
+        <div class="grid">
+            <div class="stat-circle"><div class="stat-number">60,7%</div><p>Bolivia [cite: 169]</p></div>
+            <div class="stat-circle"><div class="stat-number">58,6%</div><p>Sud Sudan [cite: 170]</p></div>
+            <div class="stat-circle"><div class="stat-number">57%</div><p>Finlandia [cite: 171]</p></div>
+            <div class="stat-circle"><div class="stat-number">52,8%</div><p>Fiji [cite: 172]</p></div>
         </div>
-        <div class="quote" style="border-color: #fff; font-size: 1.2rem;">
-            "Questa paura è vera, come può capirlo chi non la vive?" - Michela Murgia [cite: 97, 116]
+    </section>
+
+    <section id="memoria" style="background-color: #fce4ec;">
+        <h2 style="text-align: center;">IN MEMORIA DI GIULIA CECCHETTIN</h2>
+        <div class="grid">
+            <div>
+                <p>Nel novembre 2023, la 22enne Giulia Cecchettin è stata uccisa dal suo ex fidanzato[cite: 189]. Questo caso ha riacceso il dibattito sul femminicidio in Italia[cite: 197].</p>
+                <br>
+                <p><b>Fondazione Giulia Cecchettin:</b> Nata dalla sua famiglia per combattere la violenza di genere e promuovere l'educazione nelle scuole[cite: 178, 179].</p>
+            </div>
+            <div class="card" style="background: white;">
+                <p><i>"Questa paura è vera, come può capirlo chi non la vive?"</i></p>
+                <p style="margin-top: 10px;">— Michela Murgia [cite: 198]</p>
+            </div>
         </div>
     </section>
 
     <section id="aiuto">
-        <h2>Aiuto e Supporto</h2>
-        <div class="card">
-            <h3><i class="fas fa-phone"></i> 1522</h3>
-            <p>Numero nazionale antiviolenza e stalking. Attivo 24/7, gratuito e anonimo[cite: 64, 65].</p>
+        <h2 style="text-align: center;">AIUTO E SUPPORTO</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>1522</h3>
+                <p>Numero nazionale antiviolenza e stalking. Attivo 24/7, offre ascolto e supporto legale[cite: 174, 175].</p>
+            </div>
+            <div class="card">
+                <h3>112</h3>
+                <p>Numero unico di emergenza per pericolo immediato[cite: 180].</p>
+            </div>
         </div>
-        <div class="card">
-            <h3><i class="fas fa-star-of-life"></i> 112</h3>
-            <p>Numero unico di emergenza per pericolo immediato[cite: 68, 69].</p>
-        </div>
-        <div class="card">
-            <h3>Associazioni</h3>
-            <ul>
-                <li><strong>Telefono Rosa:</strong> Consulenza e sostegno[cite: 71, 72].</li>
-                <li><strong>Differenza Donna:</strong> Centri antiviolenza in varie città[cite: 74, 75].</li>
-            </ul>
+        <div style="text-align: center; margin-top: 3rem;">
+            <p>Altre risorse: Telefono Rosa [cite: 182] | Differenza Donna [cite: 184]</p>
         </div>
     </section>
 
     <footer>
-        <p>Performance "Basta Violenza" - Università Statale di Milano, 31 marzo 2025[cite: 12].</p>
-        <p>In collaborazione con Rai Radio[cite: 13].</p>
+        <p>&copy; 2025 - Progetto Scolastico "Basta Violenza"</p>
+        <p>Università Statale di Milano - Performance Collettiva [cite: 196]</p>
     </footer>
 
     <script>
-        // Effetto scorrimento fluido per i link della nav
+        // Smooth Scroll per la navigazione
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const section = document.querySelector(this.getAttribute('href'));
+                section.scrollIntoView({ behavior: 'smooth' });
             });
         });
     </script>
