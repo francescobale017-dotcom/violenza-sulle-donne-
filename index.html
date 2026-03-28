@@ -48,12 +48,16 @@
             font-weight: bold;
             font-size: 0.8rem;
             text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
         }
 
         /* Hero Header */
         header {
             height: 100vh;
-            /* QUI HO INSERITO IL TUO LINK DELL'IMMAGINE */
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://raw.githubusercontent.com/francescobale017-dotcom/violenza-sulle-donne-/refs/heads/main/IMG_2822.jpeg');
             background-size: cover;
             background-position: center;
@@ -78,6 +82,27 @@
             margin-bottom: 30px; 
             text-align: center;
             text-transform: uppercase;
+        }
+
+        /* Contenitore Video Responsive */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* Proporzione 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin: 0 auto 40px auto;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         .img-featured {
@@ -165,6 +190,7 @@
     <nav>
         <div style="color:white; font-weight: bold;">PROGETTO 2025</div>
         <div>
+            <a href="#video">Video</a>
             <a href="#cos-e">Cos'è</a>
             <a href="#sviluppo">Sviluppo</a>
             <a href="#dati">Dati</a>
@@ -181,6 +207,16 @@
         <p class="hero-sub">Progetto di Arianna, Beatrice, Sofia, Gaia e Francesco</p>
         <p style="margin-top: 20px;">Università Statale di Milano - Rai Radio</p>
     </header>
+
+    <section id="video" style="background-color: var(--dark); color: white;">
+        <div class="container">
+            <h2 style="color: var(--accent);">Il Nostro Messaggio</h2>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/IU76aWFfJyI?si=Tx3CRy0RhMh2A9eF" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <p style="text-align: center; font-style: italic; color: #ccc;">Guarda il video del nostro progetto per comprendere appieno l'impatto e il lavoro che c'è dietro.</p>
+        </div>
+    </section>
 
     <section id="cos-e">
         <div class="container">
